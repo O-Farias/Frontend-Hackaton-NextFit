@@ -11,8 +11,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import HouseIcon from "@mui/icons-material/House";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import ListItemText from "@mui/material/ListItemText";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { styled, useTheme } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 interface IFitAppBar {
   open: boolean;
@@ -43,7 +44,11 @@ const FitDrawer = (props: IFitAppBar) => {
   };
 
   const handleClickNavegarTreinos = () => {
-    navigate("/treinos"); // Add the navigation path for "treinos"
+    navigate("/treinos");
+  };
+
+  const handleClickNavegarFinanceiro = () => {
+    navigate("/financeiro");
   };
 
   return (
@@ -86,6 +91,14 @@ const FitDrawer = (props: IFitAppBar) => {
             </ListItemIcon>
             <ListItemText primary="Treinos" />
           </ListItem>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton onClick={handleClickNavegarFinanceiro}>
+            <ListItemIcon>
+              <MonetizationOnIcon />
+            </ListItemIcon>
+            <ListItemText primary="Financeiro" />
+          </ListItemButton>
         </ListItem>
       </List>
     </Drawer>

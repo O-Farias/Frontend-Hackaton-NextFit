@@ -3,8 +3,11 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import PageBemVindo from "./pages/BemVindo";
+import PageTreinos from "./pages/Treinos";
+import PageFinanceiro from "./pages/Financeiro"; // Importe a página de Financeiro
 import { useState } from "react";
 import FitDrawerHeader from "./components/FitDrawerHeader";
+import FitDrawer from "./components/FitDrawer"; // Importe o FitDrawer
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,7 +18,6 @@ import FitRouteNotFound from "./components/FitRouteNotFound";
 import { SnackbarProvider } from "notistack";
 import FitLoginRoute from "./components/FitLoginRoute";
 import PageLogin from "./pages/Login";
-import PageTreinos from "./pages/Treinos";
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
   open?: boolean;
@@ -50,6 +52,10 @@ function App() {
           path: "/treinos",
           element: <PageTreinos />,
         },
+        {
+          path: "/financeiro",
+          element: <PageFinanceiro />,
+        },
       ],
       errorElement: <FitRouteNotFound />,
     },
@@ -73,6 +79,7 @@ function App() {
     <>
       <SnackbarProvider />
       <CssBaseline />
+
       <Main open={open}>
         <FitDrawerHeader />
         <RouterProvider router={router} />
